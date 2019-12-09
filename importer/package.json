@@ -1,0 +1,14 @@
+{
+  "name": "importer",
+  "version": "1.0.0",
+  "description": "script to import lines into json",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pablo Miñarro",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.7.2"
+  }
+}
