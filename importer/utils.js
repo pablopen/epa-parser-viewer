@@ -2,12 +2,12 @@
 
 function checkNumber(stringNumber) {
   if (!stringNumber) {
-    return "0";
+    return "";
   }
 
   const value = parseInt(stringNumber, 10);
   if(isNaN(value)) {
-    return "0";
+    return "";
   }
 
   return value.toString(); // Looks like we have to return strings, but codes and sizes (could be and) are in fact integers
