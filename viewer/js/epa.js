@@ -32,8 +32,11 @@ function drawResponseCodeChart(distribution) {
     data.addRow([key, numberOfCalls]);
   }
 
+  var options = {
+    backgroundColor: '#c4e0f9'
+  };
   var chart = new google.visualization.PieChart(document.getElementById('responseCodeChart'));
-  chart.draw(data, null);
+  chart.draw(data, options);
 }
 
 function drawRequestPerMinuteChart(distribution, firstDate) {
@@ -48,8 +51,11 @@ function drawRequestPerMinuteChart(distribution, firstDate) {
     data.addRow([ dateOfElement, element[1] ]);
   }
 
+  var options = {
+    backgroundColor: '#c4e0f9'
+  };
   var chart = new google.visualization.LineChart(document.getElementById('requestsPerMinuteChart'));
-  chart.draw(data, null);
+  chart.draw(data, options);
 }
 
 function drawMethodChart(distribution) {
@@ -63,8 +69,11 @@ function drawMethodChart(distribution) {
     data.addRow([key, numberOfCalls]);
   }
 
+  var options = {
+    backgroundColor: '#c4e0f9'
+  };
   var chart = new google.visualization.PieChart(document.getElementById('methodChart'));
-  chart.draw(data, null);
+  chart.draw(data, options);
 }
 
 function drawnSizeChart(distribution) {
@@ -101,8 +110,11 @@ function drawnSizeChart(distribution) {
     data.addRow([from + ' - ' + to, bucket]);
   }
   
+  var options = {
+    backgroundColor: '#c4e0f9'
+  };
   var chart = new google.visualization.ColumnChart(document.getElementById('documentSizeChart'));
-  chart.draw(data, null);
+  chart.draw(data, options);
 }
 
 // We don't have years or months, so they are not important.
