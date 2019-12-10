@@ -54,7 +54,6 @@ async function writeLineToFile(outputStream, objectToWrite) {
 
 async function initializeOutputStreamArray() {
   const outputFile = args[1] || DEFAULT_OUPUT_FILE;
-  debugger;
   const outputStream = fs.createWriteStream(outputFile);
   let initialCharacters = '[';
   initialCharacters += '\n'; // Add a line break, this can be deleted too
