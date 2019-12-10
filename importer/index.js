@@ -1,7 +1,18 @@
+#!/usr/bin/env node
+
+/* 
+ * Quick how to use:
+ *
+ * Just call with node index.js or ./index.js
+ * 
+ * Default input and output files can be override with first and second argument
+ * node indexjs test.txt output.txt
+ * 
+*/
+
 'use strict';
 
 const fs = require('fs');
-//const path = require('path');
 const readline = require('readline');
 
 const { 
@@ -10,6 +21,13 @@ const {
   getResponseCodeObject,
   getDocumentSizeObject
 } = require('./utils');
+
+// Provided arguments:
+const [,, ... args] = process.argv;
+
+const DEFAULT_INPUT_FILE = '../data-raw/epa-http.txt';
+
+const DEFAULT_OUPUT_FILE = '../data-parsed/epa-http.json';
 
 const POSITION_INFO = {
   HOST: 0,
@@ -35,7 +53,9 @@ async function writeLineToFile(outputStream, objectToWrite) {
 }
 
 async function initializeOutputStreamArray() {
-  const outputStream = fs.createWriteStream('../data-parsed/epa-http.json');
+  const outputFile = args[1] || DEFAULT_OUPUT_FILE;
+  debugger;
+  const outputStream = fs.createWriteStream(outputFile);
   let initialCharacters = '[';
   initialCharacters += '\n'; // Add a line break, this can be deleted too
   await outputStream.write(initialCharacters);
@@ -50,8 +70,9 @@ async function closeOuputStreamArray(outputStream) {
 }
 
 async function processLineByLine() {
+  const inputFile = args[0] || DEFAULT_INPUT_FILE;
   const rl = readline.createInterface({
-    input: fs.createReadStream('../data-raw/epa-http.txt')
+    input: fs.createReadStream(inputFile)
   });
 
   let linesRead = 0;
